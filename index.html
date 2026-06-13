@@ -15,12 +15,18 @@
   <meta property="og:description" content="Operations and systems consulting for small businesses and nonprofits. Fresh eyes, clear direction.">
   <meta property="og:url" content="https://kirkworksconsulting.com">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://kirkworksconsulting.com/kirkworks-mark-animated.gif">
+  <meta property="og:image" content="https://kirkworksconsulting.com/assets/kirkworks-mark-512.png">
 
   <!-- Twitter/X card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Kirkworks — Find Your Direction.">
   <meta name="twitter:description" content="Operations and systems consulting for small businesses and nonprofits. Fresh eyes, clear direction.">
+  <meta name="twitter:image" content="https://kirkworksconsulting.com/assets/kirkworks-mark-512.png">
+
+  <!-- Icons + mobile browser chrome -->
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/kirkworks-mark-96.png">
+  <link rel="apple-touch-icon" href="assets/kirkworks-mark-200.png">
+  <meta name="theme-color" content="#1a2744">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,6 +62,9 @@
 
     html { scroll-behavior: smooth; }
 
+    /* keep anchored sections clear of the fixed nav */
+    section[id] { scroll-margin-top: 60px; }
+
     body {
       font-family: var(--font-body);
       background: var(--bg);
@@ -80,7 +89,7 @@
       height: 60px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 36px;
     }
 
     .nav-logo {
@@ -104,6 +113,7 @@
       display: flex;
       gap: 32px;
       list-style: none;
+      margin-left: auto;
     }
     .nav-links a {
       font-size: 13px;
@@ -114,6 +124,18 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      background: var(--gold);
+      padding: 8px 18px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #dba84a; }
 
     /* ─────────────────────────────────────────────────────
        HERO
@@ -197,6 +219,59 @@
     ───────────────────────────────────────────────────── */
     .hero-band {
       background: var(--ink);
+    }
+
+    /* ─────────────────────────────────────────────────────
+       GOOD FIT FOR — QUALIFICATION BAND
+    ───────────────────────────────────────────────────── */
+    .fit-band {
+      background: var(--paper);
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+
+    .fit-band .section-inner { padding: 72px 40px; }
+
+    .fit-heading {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    .fit-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 48px;
+      margin-bottom: 28px;
+    }
+
+    .fit-list li {
+      position: relative;
+      padding-left: 24px;
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--ink-body);
+    }
+    .fit-list li::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 9px;
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    .fit-note {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink-muted);
+      max-width: 640px;
     }
 
     /* ─────────────────────────────────────────────────────
@@ -331,6 +406,24 @@
       background: var(--gold);
       opacity: 0.5;
       margin-bottom: 20px;
+    }
+
+    .process-cta {
+      margin-top: 72px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(200, 151, 58, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .process-cta-line {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      max-width: 460px;
     }
 
     /* ─────────────────────────────────────────────────────
@@ -506,10 +599,15 @@
        RESPONSIVE — BASIC
     ───────────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      nav .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 120px 24px 80px; }
-      .hero-mark { display: none; }
+      nav { padding: 12px 20px; height: auto; flex-wrap: wrap; gap: 10px 16px; }
+      .nav-cta { margin-left: auto; padding: 7px 14px; }
+      nav .nav-links { order: 3; flex-basis: 100%; margin-left: 0; gap: 16px; }
+      .nav-links a { font-size: 12px; }
+      section[id] { scroll-margin-top: 104px; }
+      .hero { grid-template-columns: 1fr; padding: 150px 24px 72px; gap: 40px; }
+      .fit-band .section-inner { padding: 56px 24px; }
+      .fit-list { grid-template-columns: 1fr; gap: 16px; }
+      .hero-mark img { width: 180px; height: 180px; }
       .hero-headline { font-size: 36px; }
       .section-inner { padding: 64px 24px; }
       .services-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -540,11 +638,12 @@
       <span class="nav-wordmark"><span>Kirk</span>works</span>
     </a>
     <ul class="nav-links">
+      <li><a href="#fit">Who It's For</a></li>
       <li><a href="#services">What I Do</a></li>
       <li><a href="#how">How It Works</a></li>
       <li><a href="#about">About Me</a></li>
-      <li><a href="#contact">Contact</a></li>
     </ul>
+    <a href="#contact" class="nav-cta">Get in touch</a>
   </nav>
 
   <!-- ─── HERO ─────────────────────────────────────────── -->
@@ -566,10 +665,25 @@
 
       <!-- Kirkworks animated mark as hero visual -->
       <div class="hero-mark">
-        <img src="kirkworks-mark-animated.gif" width="280" height="280" alt="Kirkworks mark" aria-hidden="true">
+        <img src="assets/kirkworks-mark-animated.gif" width="280" height="280" alt="Kirkworks mark" aria-hidden="true">
       </div>
     </div>
   </div>
+
+  <!-- ─── GOOD FIT FOR ──────────────────────────────────── -->
+  <section id="fit" class="fit-band">
+    <div class="section-inner">
+      <div class="section-kicker">Good Fit For</div>
+      <h2 class="fit-heading">Sound familiar?</h2>
+      <ul class="fit-list">
+        <li>You know something's off in your operations, but you can't quite put a finger on it.</li>
+        <li>Your team is outgrowing the processes that used to work.</li>
+        <li>Your day is full of tasks you do the same way, every time — the kind of work that should run itself.</li>
+        <li>You've been burned by a consultant who didn't listen.</li>
+      </ul>
+      <p class="fit-note">If any of that sounds like you, we should talk. And if what you're after is a thick deck of recommendations from a big firm, I'm probably not your consultant — I build working systems with the people who use them.</p>
+    </div>
+  </section>
 
   <!-- ─── WHAT I DO ─────────────────────────────────────── -->
   <section id="services" class="services-band">
@@ -645,6 +759,16 @@
           <p class="step-body">The deliverable fits the problem — sometimes a process redesign, sometimes a system build, sometimes a clear set of decisions. Always something your team can own after I'm gone.</p>
         </div>
       </div>
+
+      <div class="process-cta">
+        <p class="process-cta-line">You don't need to know which phase you need. Figuring that out is the job.</p>
+        <a href="#contact" class="hero-cta">
+          Tell me what's not working
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -653,7 +777,7 @@
     <div class="section-inner">
       <div class="about-grid">
         <div class="about-aside">
-          <img src="jared-headshot-web.jpg" alt="Jared Kirk" class="about-photo">
+          <img src="assets/jared-headshot-web.jpg" alt="Jared Kirk" class="about-photo">
           <div class="about-label">About</div>
           <div class="about-name">Jared Kirk</div>
           <div class="about-title">
@@ -702,9 +826,9 @@
         </div>
         <div class="contact-aside">
           <div class="contact-card">
-            <div class="contact-card-kicker">Good fit for</div>
+            <div class="contact-card-kicker">What happens next</div>
             <p class="contact-card-body">
-              Small businesses and nonprofits who know something's off in their operations but can't put a finger on it. Teams outgrowing their current processes. Owners spending time on work that should run itself. Anyone who's been burned by a consultant who didn't listen.
+              Your email comes straight to me. We'll trade a few notes, maybe set up a short call, and I'll tell you honestly whether I can help — and if I can't, I'll point you toward someone who can.
             </p>
           </div>
         </div>
