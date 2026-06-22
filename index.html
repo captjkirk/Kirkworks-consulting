@@ -65,6 +65,13 @@
     /* keep anchored sections clear of the fixed nav */
     section[id] { scroll-margin-top: 60px; }
 
+    /* visible keyboard focus for all interactive elements (a11y) */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
     body {
       font-family: var(--font-body);
       background: var(--bg);
@@ -397,7 +404,7 @@
     .step-body {
       font-size: 14px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.74);
     }
 
     .step-divider {
@@ -422,7 +429,7 @@
     .process-cta-line {
       font-size: 15px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.74);
       max-width: 460px;
     }
 
@@ -546,7 +553,7 @@
     .contact-card-body {
       font-size: 14px;
       line-height: 1.7;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.74);
     }
 
     /* ─────────────────────────────────────────────────────
@@ -621,8 +628,8 @@
 <body>
 
   <!-- ─── NAV ──────────────────────────────────────────── -->
-  <nav>
-    <a href="#" class="nav-logo">
+  <nav aria-label="Main">
+    <a href="#" class="nav-logo" aria-label="Kirkworks home">
       <!-- Concept D Navigator mark (inline, 28px) — lighter fill + gold stroke for nav contrast -->
       <svg width="28" height="28" viewBox="0 0 54 54" fill="none" aria-hidden="true">
         <rect x="2" y="2" width="50" height="50" rx="11" fill="#2d3f6b" stroke="#c8973a" stroke-width="2"/>
@@ -646,6 +653,7 @@
     <a href="#contact" class="nav-cta">Get in touch</a>
   </nav>
 
+  <main>
   <!-- ─── HERO ─────────────────────────────────────────── -->
   <div class="hero-band">
     <div class="hero">
@@ -697,7 +705,7 @@
       <div class="services-grid">
         <div class="service-card">
           <div class="service-number">01</div>
-          <div class="service-title">Find what's missing</div>
+          <div class="service-title" role="heading" aria-level="3">Find what's missing</div>
           <p class="service-body">
             A clear-eyed look at how your business actually runs — where time disappears, where things fall through the cracks, and what it's actually costing you. You'll have a clear picture of where you are and what's possible before we talk about next steps.
           </p>
@@ -705,7 +713,7 @@
 
         <div class="service-card">
           <div class="service-number">02</div>
-          <div class="service-title">Build something that works</div>
+          <div class="service-title" role="heading" aria-level="3">Build something that works</div>
           <p class="service-body">
             Better processes, cleaner workflows, tools that talk to each other. Built for your team, not a template. Sometimes that's a CRM. Sometimes it's a handful of SOPs and a clear handoff process. Whatever the right answer is, we build that.
           </p>
@@ -713,7 +721,7 @@
 
         <div class="service-card">
           <div class="service-number">03</div>
-          <div class="service-title">Make sure it actually sticks</div>
+          <div class="service-title" role="heading" aria-level="3">Make sure it actually sticks</div>
           <p class="service-body">
             A plan that no one uses isn't a plan. I stay close through rollout, handle the sharp edges, and make sure the people doing the work can actually use what we built — without needing a manual to do it.
           </p>
@@ -721,7 +729,7 @@
 
         <div class="service-card">
           <div class="service-number">04</div>
-          <div class="service-title">Put AI to work for you</div>
+          <div class="service-title" role="heading" aria-level="3">Put AI to work for you</div>
           <p class="service-body">
             AI tools can genuinely take repetitive, time-consuming work off your plate — if they're set up right for how your business actually operates. I help you identify where AI can make a real difference and build a practical AI operating system tailored to your team, so the right tasks run themselves and your people focus on work that actually needs them.
           </p>
@@ -743,19 +751,19 @@
         <div class="process-step">
           <div class="step-num">Phase 01</div>
           <div class="step-divider"></div>
-          <div class="step-title">Listen and map</div>
+          <div class="step-title" role="heading" aria-level="3">Listen and map</div>
           <p class="step-body">We start by mapping what's actually happening — not what the org chart says, and not what the software log shows. Interviews, walkthroughs, and a lot of careful questions.</p>
         </div>
         <div class="process-step">
           <div class="step-num">Phase 02</div>
           <div class="step-divider"></div>
-          <div class="step-title">Find the real problem</div>
+          <div class="step-title" role="heading" aria-level="3">Find the real problem</div>
           <p class="step-body">Most operational pain has one or two root causes. We identify those specifically, explain them plainly, and agree on what success looks like before anything is built.</p>
         </div>
         <div class="process-step">
           <div class="step-num">Phase 03</div>
           <div class="step-divider"></div>
-          <div class="step-title">Build and hand off</div>
+          <div class="step-title" role="heading" aria-level="3">Build and hand off</div>
           <p class="step-body">The deliverable fits the problem — sometimes a process redesign, sometimes a system build, sometimes a clear set of decisions. Always something your team can own after I'm gone.</p>
         </div>
       </div>
@@ -779,7 +787,7 @@
         <div class="about-aside">
           <img src="assets/jared-headshot-web.jpg" alt="Jared Kirk" class="about-photo">
           <div class="about-label">About</div>
-          <div class="about-name">Jared Kirk</div>
+          <div class="about-name" role="heading" aria-level="2">Jared Kirk</div>
           <div class="about-title">
             Salesforce Architect &amp; Operations Consultant<br>
             Pataskala, Ohio
@@ -835,6 +843,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ─── FOOTER ────────────────────────────────────────── -->
   <footer>
