@@ -38,13 +38,13 @@
     :root {
       --ink:            #1a2744;   /* Command Navy   */
       --gold:           #c8973a;   /* Starfield Gold */
-      --teal:           #2a7d7b;   /* Warp Teal      */
+      --teal:           #1f6260;   /* Warp Teal      */
       --bg:             #faf8f4;   /* Bridge Cream   */
       --ink-body:       #4a5568;   /* Slate          */
 
       --paper:          #ffffff;
-      --ink-muted:      #6b7280;
-      --ink-faint:      #9ca3af;
+      --ink-muted:      #565d6a;
+      --ink-faint:      #5c6470;
       --hairline:       #d6d2c7;
       --hairline-soft:  #e8e4d8;
       --ink-tint:       #f0eee5;
@@ -53,6 +53,29 @@
 
       --font-display:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       --font-body:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+      /* semantic split so text + surfaces move independently in dark mode */
+      --heading:        var(--ink);   /* heading text on light surfaces */
+      --on-dark:        #f5f7fb;      /* text on the navy bands (same in both modes) */
+      --gold-text:      #7a5814;      /* AA-safe deep gold for small labels on light */
+    }
+
+    /* Dark mode — follows the visitor's OS setting. No toggle. */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:            #0e1626;   /* deep ground (was Bridge Cream) */
+        --paper:         #16203a;   /* elevated card surface (was white) */
+        --ink:           #080e1c;   /* navy bands + button text stay dark */
+        --ink-body:      #c6cedd;
+        --ink-muted:     #97a1b3;
+        --ink-faint:     #868fa3;
+        --ink-tint:      #121b31;
+        --hairline:      #2a3654;
+        --hairline-soft: #222d49;
+        --heading:       #eef1f8;   /* headings flip to light */
+        --gold-text:     #d8a94c;   /* brighter gold label on dark */
+        --teal:          #54b7b0;
+      }
     }
 
     /* ─────────────────────────────────────────────────────
@@ -111,7 +134,7 @@
       font-weight: 600;
       font-size: 16px;
       letter-spacing: 0.5px;
-      color: var(--paper);
+      color: var(--on-dark);
       line-height: 1;
     }
     .nav-wordmark span { color: var(--gold); }
@@ -174,7 +197,7 @@
       font-size: 48px;
       font-weight: 700;
       line-height: 1.1;
-      color: var(--paper);
+      color: var(--on-dark);
       margin-bottom: 24px;
       letter-spacing: -0.02em;
     }
@@ -243,7 +266,7 @@
       font-size: 28px;
       font-weight: 700;
       line-height: 1.2;
-      color: var(--ink);
+      color: var(--heading);
       margin-bottom: 28px;
       letter-spacing: -0.01em;
     }
@@ -298,13 +321,16 @@
       color: var(--gold);
       margin-bottom: 12px;
     }
+    /* gold kicker on light bands: deepen for WCAG AA (gold-on-navy bands keep --gold) */
+    .fit-band .section-kicker,
+    .services-band .section-kicker { color: var(--gold-text); }
 
     .section-heading {
       font-family: var(--font-display);
       font-size: 36px;
       font-weight: 700;
       line-height: 1.15;
-      color: var(--ink);
+      color: var(--heading);
       margin-bottom: 20px;
       letter-spacing: -0.01em;
     }
@@ -357,7 +383,7 @@
       font-family: var(--font-display);
       font-size: 19px;
       font-weight: 600;
-      color: var(--ink);
+      color: var(--heading);
       margin-bottom: 12px;
       line-height: 1.25;
     }
@@ -372,7 +398,7 @@
        HOW IT WORKS — PROCESS STRIP
     ───────────────────────────────────────────────────── */
     .process-band { background: var(--ink); }
-    .process-band .section-heading { color: var(--paper); }
+    .process-band .section-heading { color: var(--on-dark); }
     .process-band .section-lead { color: rgba(255,255,255,0.65); }
     .process-band .section-kicker { color: var(--gold); }
 
@@ -396,7 +422,7 @@
     .step-title {
       font-size: 18px;
       font-weight: 600;
-      color: var(--paper);
+      color: var(--on-dark);
       margin-bottom: 10px;
       line-height: 1.25;
     }
@@ -469,7 +495,7 @@
     .about-name {
       font-size: 26px;
       font-weight: 700;
-      color: var(--ink);
+      color: var(--heading);
       margin-bottom: 6px;
     }
 
@@ -500,7 +526,7 @@
        CONTACT
     ───────────────────────────────────────────────────── */
     .contact-band { background: var(--ink); }
-    .contact-band .section-heading { color: var(--paper); }
+    .contact-band .section-heading { color: var(--on-dark); }
     .contact-band .section-kicker { color: var(--gold); }
 
     .contact-layout {
@@ -824,7 +850,7 @@
       <div class="contact-layout">
         <div>
           <div class="section-kicker">Get in Touch</div>
-          <h2 class="section-heading" style="color: var(--paper);">Let's talk about<br>what's not working.</h2>
+          <h2 class="section-heading" style="color: var(--on-dark);">Let's talk about<br>what's not working.</h2>
           <p class="contact-text">
             No intake form, no discovery call gatekeeping. Send me an email, tell me what you're dealing with, and I'll respond directly.
           </p>
