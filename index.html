@@ -565,6 +565,11 @@
       margin-top: 12px;
     }
 
+    .project-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-cta.secondary { background: transparent; color: var(--heading); border: 1.5px solid var(--gold); padding: 12.5px 26.5px; }
+    .hero-cta.secondary:hover { background: var(--gold-tint); }
+    @media (prefers-color-scheme: dark) { .hero-cta.secondary:hover { background: rgba(200,151,58,0.14); } }
+
     .project-steps { margin-top: 20px; border-top: 1px solid var(--hairline-soft); padding-top: 16px; }
     .project-steps summary {
       font-size: 13.5px;
@@ -952,22 +957,16 @@
             <p class="service-body">
               The 3D sequel: mountain valleys, forests, ruins and towns, five heroes, three camera views, and co-op for everyone on the same home network.
             </p>
-            <a href="https://github.com/captjkirk/iron-wasteland-2-game/releases/latest/download/Iron-Wasteland-2-mac-universal.zip" class="hero-cta">
-              Download for Mac
+            <div class="project-actions">
+              <a href="https://github.com/captjkirk/iron-wasteland-2-game/releases/latest/download/Iron-Wasteland-2-mac-universal.zip" class="hero-cta">
+                Download for Mac
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M8 2v9M4 7l4 4 4-4M3 14h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
+              <a href="iron-wasteland-2/install/" class="hero-cta secondary">Installation instructions</a>
+            </div>
             <p class="project-meta">Free · about 250 MB · Apple chip or Intel. Mac only for now.</p>
-            <details class="project-steps">
-              <summary>First time opening it?</summary>
-              <ol>
-                <li>Double-click the zip, then drag <strong>Iron Wasteland 2</strong> into <strong>Applications</strong>.</li>
-                <li>Open it. macOS says it can't check the app, because it isn't signed through a paid Apple developer account. Click <strong>Done</strong>.</li>
-                <li>Open <strong>System Settings</strong>, then <strong>Privacy &amp; Security</strong>. Scroll down to Iron Wasteland 2 and click <strong>Open Anyway</strong>, then confirm. (On macOS 14 or older, right-click the app, choose <strong>Open</strong>, then <strong>Open</strong> again.)</li>
-                <li>When it asks to find devices on your local network, click <strong>Allow</strong>. That's how games in the same house find each other.</li>
-              </ol>
-            </details>
           </div>
         </article>
 
