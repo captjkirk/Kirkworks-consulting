@@ -323,7 +323,8 @@
     }
     /* gold kicker on light bands: deepen for WCAG AA (gold-on-navy bands keep --gold) */
     .fit-band .section-kicker,
-    .services-band .section-kicker { color: var(--gold-text); }
+    .services-band .section-kicker,
+    .projects-band .section-kicker { color: var(--gold-text); }
 
     .section-heading {
       font-family: var(--font-display);
@@ -523,6 +524,67 @@
     .about-body p + p { margin-top: 20px; }
 
     /* ─────────────────────────────────────────────────────
+       SIDE PROJECTS
+    ───────────────────────────────────────────────────── */
+    .projects-band { background: var(--bg); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .project-card {
+      background: var(--paper);
+      border: 1px solid var(--hairline-soft);
+      border-top: 3px solid var(--gold);
+    }
+
+    .project-shot {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: var(--ink-tint);
+    }
+    .project-shot.soon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.6;
+    }
+
+    .project-body { padding: 24px 28px 28px; }
+    .project-body .service-body { margin-bottom: 24px; }
+
+    .project-meta {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      margin-top: 12px;
+    }
+
+    .project-steps { margin-top: 20px; border-top: 1px solid var(--hairline-soft); padding-top: 16px; }
+    .project-steps summary {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--teal);
+      cursor: pointer;
+    }
+    .project-steps ol {
+      margin: 12px 0 0 18px;
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .project-steps li + li { margin-top: 8px; }
+    .project-steps strong { color: var(--heading); font-weight: 600; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-cta:hover { transform: none; }
+    }
+
+    /* ─────────────────────────────────────────────────────
        CONTACT
     ───────────────────────────────────────────────────── */
     .contact-band { background: var(--ink); }
@@ -614,7 +676,7 @@
 
     .footer-tagline {
       font-size: 12px;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.6);
       letter-spacing: 0.06em;
     }
 
@@ -646,8 +708,18 @@
       .services-grid { grid-template-columns: 1fr; gap: 16px; }
       .process-steps { grid-template-columns: 1fr; gap: 32px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 16px; }
+      .nav-links { flex-wrap: wrap; row-gap: 6px; }
       .contact-layout { grid-template-columns: 1fr; gap: 40px; }
       .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      nav .nav-links { gap: 8px; justify-content: space-between; }
+      .nav-links a { font-size: 11px; letter-spacing: 0.02em; }
+    }
+    /* under 375px the five links wrap to two rows */
+    @media (max-width: 374px) {
+      section[id] { scroll-margin-top: 140px; }
     }
   </style>
 </head>
@@ -675,6 +747,7 @@
       <li><a href="#services">What I Do</a></li>
       <li><a href="#how">How It Works</a></li>
       <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Get in touch</a>
   </nav>
@@ -840,6 +913,78 @@
             If you already know what you need built, I can probably build it. If you're not sure where to start, that's where I'm most useful.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SIDE PROJECTS ─────────────────────────────────── -->
+  <section id="projects" class="projects-band">
+    <div class="section-inner">
+      <div class="section-kicker">Side Projects</div>
+      <h2 class="section-heading">Things I build at home.</h2>
+      <p class="section-lead">
+        Outside client work, I build games with my kids and for them. They're free. Take one for a spin.
+      </p>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <img src="assets/iron-wasteland.jpg" class="project-shot" width="800" height="450" loading="lazy" alt="Iron Wasteland: a knight and a gunslinger in a grassy field beside a pond">
+          <div class="project-body">
+            <div class="service-number">2D game · Plays in your browser</div>
+            <h3 class="service-title">Iron Wasteland</h3>
+            <p class="service-body">
+              A top-down survival game for one player, or two on the same keyboard. Pick a hero, gather scrap, food and fiber, and hold off the wolves, rats and bears.
+            </p>
+            <a href="https://captjkirk.github.io/Iron-Wasteland/" class="hero-cta">
+              Play in your browser
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="assets/iron-wasteland-2.jpg" class="project-shot" width="800" height="450" loading="lazy" alt="Iron Wasteland 2: an armored knight walks toward a campfire and tent in a mountain valley">
+          <div class="project-body">
+            <div class="service-number">3D game · Mac app</div>
+            <h3 class="service-title">Iron Wasteland 2</h3>
+            <p class="service-body">
+              The 3D sequel: mountain valleys, forests, ruins and towns, five heroes, three camera views, and co-op for everyone on the same home network.
+            </p>
+            <p class="project-meta"><strong>Mac download: coming tonight.</strong></p>
+            <p class="project-meta">Free · about 250 MB · Apple chip or Intel. Mac only for now.</p>
+            <details class="project-steps">
+              <summary>First time opening it?</summary>
+              <ol>
+                <li>Double-click the zip, then drag <strong>Iron Wasteland 2</strong> into <strong>Applications</strong>.</li>
+                <li>Open it. macOS says it can't check the app, because it isn't signed through a paid Apple developer account. Click <strong>Done</strong>.</li>
+                <li>Open <strong>System Settings</strong>, then <strong>Privacy &amp; Security</strong>. Scroll down to Iron Wasteland 2 and click <strong>Open Anyway</strong>, then confirm. (On macOS 14 or older, right-click the app, choose <strong>Open</strong>, then <strong>Open</strong> again.)</li>
+                <li>When it asks to find devices on your local network, click <strong>Allow</strong>. That's how games in the same house find each other.</li>
+              </ol>
+            </details>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-shot soon" aria-hidden="true">
+            <svg width="56" height="56" viewBox="0 0 54 54" fill="none">
+              <rect x="2" y="2" width="50" height="50" rx="11" fill="none" stroke="#c8973a" stroke-width="2"/>
+              <polygon points="27,9 29.8,23 27,27 24.2,23" fill="#c8973a"/>
+              <polygon points="27,45 29,34 27,31 25,34" fill="#c8973a" opacity="0.45"/>
+              <polygon points="45,27 34,29 31,27 34,25" fill="#c8973a" opacity="0.45"/>
+              <polygon points="9,27 20,25 23,27 20,29" fill="#c8973a" opacity="0.45"/>
+              <circle cx="27" cy="27" r="4" fill="none" stroke="#c8973a" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <div class="project-body">
+            <div class="service-number">Coming soon</div>
+            <h3 class="service-title">Something new</h3>
+            <p class="service-body">
+              Another project is in the works. Check back soon.
+            </p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
